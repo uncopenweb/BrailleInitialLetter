@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Initial Letter</title>
+        <style type="text/css">
+            @import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/resources/dojo.css";
+            @import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";
+            @import "css/braille.css";
+        
+            html, body {width: 100%; height: 100%; overflow: hidden; }
+            #pic { width: 66%; height: 100%; display: inline-block; }
+            #dotdiv { width: 33%; height: 100%; display: inline-block; }
+        </style>
+        <script type="text/javascript">
+            var djConfig = {
+                isDebug: false,
+                parseOnLoad: true,
+                baseUrl: './',
+                modulePaths: {  }
+            };
+        </script>
+        <script type="text/javascript" 
+                src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js">
+        </script>
+        <script type="text/javascript" src="/libs/uow.js"></script>
+        <script type="text/javascript" src="BrailleKB.js"></script>
+        <script type="text/javascript" src="AnimalRescue/AnimalRescue.js"></script>
+        <script type="text/javascript" src="initialLetter.js">
+        </script>
+    </head>
+    <body>
+        <div id="pic"></div>
+        <div id="dotdiv">
+        <table id="dots">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>

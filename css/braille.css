@@ -1,0 +1,27 @@
+/* 
+ * Some rules to get the example widgets to look nice. Adjust or remove for 
+ * your own app as needed.
+ */
+ 
+table#dots {
+    width: 100%;
+    height: 100%;
+}
+
+#dots td {
+    width: 50%;
+    height: 33%;
+}
+    
+#dots td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+#dots td.dot {
+    background-image: url('../images/dot.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
