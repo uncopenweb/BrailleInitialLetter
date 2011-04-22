@@ -61,6 +61,7 @@ dojo.declare('iLGame', [ ], {
     constructor: function(game) {
         var self = this;
         self.game = game;
+        document.title = game.name;
         
         uow.ui.connectKeys();
     
