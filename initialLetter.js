@@ -107,9 +107,13 @@ dojo.declare('iLGame', [ ], {
         self.waitingForLetter = false;
         self.word = self.words.pop();
         // handle empty case
-        self.show(self.word.image);
+        if (self.word.image) {
+            self.show(self.word.image);
+        }
         self.letter = self.word[0];
-        self.play(self.word.sound);
+        if (self.word.sound) {
+            self.play(self.word.sound);
+        }
         self.say(self.word.intro).callAfter(function() {
             self.waitingForLetter = true;
         });
