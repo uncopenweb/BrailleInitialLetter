@@ -21,6 +21,14 @@ table#dots {
 
 #dots td.dot {
     background-image: url('../images/dot.jpg');
+    -moz-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#pic {
+    -moz-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

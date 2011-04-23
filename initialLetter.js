@@ -171,9 +171,10 @@ dojo.declare('iLGame', [ ], {
         } else {
             dojo.style('pic', { 
                 backgroundImage: 'url(' + self.word.image + ')', 
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center' });
+                //backgroundSize: 'contain',
+                //backgroundRepeat: 'no-repeat',
+                //backgroundPosition: 'center' });
+            });
         }
     },
     
