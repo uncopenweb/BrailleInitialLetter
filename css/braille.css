@@ -20,7 +20,7 @@ table#dots {
 }
 
 #dots td.dot {
-    background-image: url('../images/dot.jpg');
+    background-image: url('../images/dot.png');
     -moz-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
