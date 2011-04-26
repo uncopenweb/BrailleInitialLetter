@@ -1,0 +1,22 @@
+{
+      "identifier" : "url",
+      "items" : [
+          {
+              "url" : "BrailleInitialLetter",
+              "label" : {
+                  "en-us" : "Save the Animals!"
+              },
+              "tags" : {
+                  "en-us" : "Braille"
+              },
+              "description" : {
+                  "en-us" : "Rescue animals by making the first letter of their names in Braille using the keyboard or DDR pad."
+              },
+              "media" : {
+                  "icon" : "BrailleInitialLetter/info/Braille.png",
+                  "screenshots" : ['tictactoe/info/Screenshot.png']
+              },
+              "attribution" : ""
+          }
+      ]
+}
