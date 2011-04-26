@@ -14,7 +14,7 @@
               },
               "media" : {
                   "icon" : "BrailleInitialLetter/Info/Braille.png",
-                  "screenshots" : ['tictactoe/Info/Screenshot.png']
+                  "screenshots" : ['BrailleInitialLetter/Info/Screenshot.png']
               },
               "attribution" : ""
           }
