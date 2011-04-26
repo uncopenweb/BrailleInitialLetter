@@ -13,8 +13,8 @@
                   "en-us" : "Rescue animals by making the first letter of their names in Braille using the keyboard or DDR pad."
               },
               "media" : {
-                  "icon" : "BrailleInitialLetter/info/Braille.png",
-                  "screenshots" : ['tictactoe/info/Screenshot.png']
+                  "icon" : "BrailleInitialLetter/Info/Braille.png",
+                  "screenshots" : ['tictactoe/Info/Screenshot.png']
               },
               "attribution" : ""
           }
