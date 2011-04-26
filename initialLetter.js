@@ -84,7 +84,7 @@ dojo.declare('iLGame', [ ], {
             self.audio.setProperty({ channel: 'preview', name: 'pitch', value: 0.4, immediate: true });
             self.audio.setProperty({name : 'voice', value : 'default+f1', channel : 'preview'});
             
-            dojo.subscribe('message', self, 'say');
+            dojo.subscribe('message', self, 'message');
             dojo.subscribe('dots', self, 'display');
             dojo.subscribe('letter', self, 'newLetter');
             
@@ -134,7 +134,9 @@ dojo.declare('iLGame', [ ], {
     
     reward: function(l) {
         var self = this;
+        self.waitingForLetter = false;
         console.log('reward', l);
+        this.mute = true;
         var txt = 'You made the letter, ' + l + '. ';
         txt += silence(1.0);
         txt += spell(self.word.word) + ' spells ' + self.word.word + '. ';
@@ -193,13 +195,24 @@ dojo.declare('iLGame', [ ], {
         return r;
     },
     
+    message: function(txt, channel, after) {
+        var self = this;
+        if (self.waitingForLetter) {
+            d = this.say(txt, channel);
+            if (after) {
+                d.callAfter(after);
+            }
+        } else if (after) {
+            after();
+        }
+    },
+    
     say: function(txt, channel) {
         if (!channel) {
             channel = 'default';
         }
         console.log('say', txt);
         return this.audio.say({ text: txt, channel: channel });
-        //return this.audio.say({ text: txt.split(' ')[0], channel: channel });
     },
     
     play: function(snd) {
@@ -220,5 +233,6 @@ dojo.ready(function() {
     console.log('game', game);
     var g = new iLGame(game);
     var b = new BrailleKB();
+    var p = new BraillePad();
 });
 

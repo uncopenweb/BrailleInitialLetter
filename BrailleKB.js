@@ -1,4 +1,4 @@
-dojo.provide('gb.Main');
+dojo.provide('BrailleKB');
 dojo.require('dojo.parser');
 
 var Braille = {
