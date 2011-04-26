@@ -50,12 +50,14 @@ var game = { // temporary to allow inclusion as a script, eventually from the db
             image: "AnimalRescue/Images/hippo.jpg",
             sound: "AnimalRescue/Sounds/hippo"
         },
+/*
         {   word: "Iguana",
             intro: "There is an iguana in the forest in Florida that is stuck in a tree. To help free the iguana, you have to make the first letter of iguana.",
             success: "Good job! You have helped the iguana escape the tree and return home.",
             image: "AnimalRescue/Images/iguana.jpg",
             sound: ""
         },
+*/
         {   word: "Jaybird",
             intro: "There is a jaybird in the tree that is having trouble flying. To help the jaybird fly, make the first letter of jaybird.",
             success: "Good job! You have helped the jaybird get off the tree and fly into the sky!",
