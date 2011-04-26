@@ -69,7 +69,7 @@ var game = { // temporary to allow inclusion as a script, eventually from the db
             sound: ""
         },
         {   word: "Lion",
-            intro: "The lion has escaped from its den! The lion needs to be captured. Help capture the lion by making the first letter of LION.",
+            intro: "The lion has escaped from its den! The lion needs to be captured. Help capture the lion by making the first letter of lion.",
             success: "Good job! You have captured the lion and it has returned to its den! ",
             image: "AnimalRescue/Images/lion.jpg",
             sound: "AnimalRescue/Sounds/lion"
@@ -81,19 +81,19 @@ var game = { // temporary to allow inclusion as a script, eventually from the db
             sound: "AnimalRescue/Sounds/monkey"
         },
         {   word: "Newt",
-            intro: "There is a newt swimming in the water and it needs food. To feed the newt, make the first letter of NEWT.",
+            intro: "There is a newt swimming in the water and it needs food. To feed the newt, make the first letter of newt.",
             success: "Wonderful! The newt is now full because it got food! ",
             image: "AnimalRescue/Images/newt.jpg",
             sound: ""
         },
         {   word: "Owl",
-            intro: "You are outside in the woods and you hear the owl but you don’t know where it is. You want the owl to fly over you.. Make the first letter of OWL to make it fly! ",
+            intro: "You are outside in the woods and you hear the owl but you don't know where it is. You want the owl to fly over you.. Make the first letter of owl to make it fly! ",
             success: "Good job! The owl flew over you!",
             image: "AnimalRescue/Images/owl.jpg",
             sound: "AnimalRescue/Sounds/owl"
         },
         {   word: "Panda",
-            intro: " black and white panda is trying to find bamboo to eat but is having trouble. Help the panda find bamboo by making the first letter of PANDA.",
+            intro: " black and white panda is trying to find bamboo to eat but is having trouble. Help the panda find bamboo by making the first letter of panda.",
             success: "Super! The panda found bamboo and is now nice and full! ",
             image: "AnimalRescue/Images/panda.jpg",
             sound: ""
@@ -105,19 +105,19 @@ var game = { // temporary to allow inclusion as a script, eventually from the db
             sound: "AnimalRescue/Sounds/bee"
         },
         {   word: "Rhino",
-            intro: "The rhino is out in the grass and starts charging towards you. You need to run! To make the rhino stop, make the first letter of Rhino.",
+            intro: "The rhino is out in the grass and starts charging towards you. You need to run! To make the rhino stop, make the first letter of rhino.",
             success: "Good job! the rhino stopped running and you are now safe.",
             image: "AnimalRescue/Images/rhino.jpg",
             sound: "AnimalRescue/Sounds/rhino"
         },
         {   word: "Snake",
-            intro: "You see a snake slithering around in the grass and it is coming towards you! To capture the snake, make the first letter of SNAKE.",
+            intro: "You see a snake slithering around in the grass and it is coming towards you! To capture the snake, make the first letter of snake.",
             success: "You have stopped the snake and the grass is all clear! ",
             image: "AnimalRescue/Images/snake.jpg",
             sound: "AnimalRescue/Sounds/snake"
         },
         {   word: "Tiger",
-            intro: "You are on a safari tour and you see a tiger. The tiger is chasing a deer! You need to stop the tiger! Make the first letter of TIGER to save the deer.",
+            intro: "You are on a safari tour and you see a tiger. The tiger is chasing a deer! You need to stop the tiger! Make the first letter of tiger to save the deer.",
             success: "Good job! You have saved the deer and stopped the tiger!",
             image: "AnimalRescue/Images/tiger.jpg",
             sound: "AnimalRescue/Sounds/tiger"
