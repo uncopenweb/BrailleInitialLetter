@@ -110,7 +110,11 @@ dojo.declare('iLGame', [ ], {
 		self.soundVolume=prefs.soundVolume;
 		
 		self.audio.setProperty({name: 'volume', value: this.masterVolume*(this.playingSound ? this.soundVolume : this.speechVolume), immediate: true});
-		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
+		self.audio.setProperty({name: 'volume', channel: 'preview', value: this.masterVolume*this.speechVolume, immediate: true});
+		
+		//Set speech rate of channels
+		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true
+		self.audio.setProperty({name: 'rate', channel: 'preview', value: prefs.speechRate, immediate: true});
 	},
     
     newGame: function() {
@@ -232,7 +236,7 @@ dojo.declare('iLGame', [ ], {
         if (!channel) {
             channel = 'default';
         }
-        console.log('say:  channel: '+channel+', text: '+txt);
+        //console.log('say:  channel: '+channel+', text: '+txt);
 		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
