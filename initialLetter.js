@@ -84,7 +84,7 @@ dojo.declare('iLGame', [ ], {
         uow.getAudio({ defaultCaching: true }).then(function(a) {
             self.audio = a;
 			
-			dojo.subscribe('/org/hark/prefs/response', self, this.prefsCallback);
+			dojo.subscribe('/org/hark/prefs/response', self, self.prefsCallback);
             dojo.publish('/org/hark/prefs/request');
 			
 			// configure the preview channel
