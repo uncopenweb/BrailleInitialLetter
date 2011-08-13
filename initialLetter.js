@@ -232,15 +232,15 @@ dojo.declare('iLGame', [ ], {
         if (!channel) {
             channel = 'default';
         }
-        console.log('say', txt);
+        console.log('say:  channel: '+channel+', text: '+txt);
 		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
     
     play: function(snd) {
-		this.playingSound=true;console.log(this.playingSound);
+		this.playingSound=true;
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
-        return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;console.log(this.playingSound);}));
+        return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;}));
     }, 
     
     display: function(dots) {
