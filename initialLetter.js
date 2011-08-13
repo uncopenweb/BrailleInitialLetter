@@ -107,6 +107,9 @@ dojo.declare('iLGame', [ ], {
 		self.masterVolume=prefs.volume;
 		self.speechVolume=prefs.speechVolume;
 		self.soundVolume=prefs.soundVolume;
+		
+		self.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
+		self.audio.setProperty({name: 'rate', value: prefs.speechRate});
 	},
     
     newGame: function() {
