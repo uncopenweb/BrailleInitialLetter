@@ -238,9 +238,9 @@ dojo.declare('iLGame', [ ], {
     },
     
     play: function(snd) {
-		this.playingSound=true;
+		this.playingSound=true;console.log(this.playingSound);
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
-        return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;}));
+        return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;console.log(this.playingSound);}));
     }, 
     
     display: function(dots) {
