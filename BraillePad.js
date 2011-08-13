@@ -69,7 +69,7 @@ dojo.declare('BraillePad', null, {
 
     fsm: function(input) {
         var entry = this.state_table[this.state][input];
-        console.log('fsm', input, this.state);
+        //console.log('fsm', input, this.state);
         if (!entry) {
             return;
         }

@@ -58,6 +58,10 @@ function silence(duration) {
 }
 
 dojo.declare('iLGame', [ ], {
+	masterVolume: 1.0,
+	speechVolume: 1.0,
+	soundVolume: 1.0,
+	
     constructor: function(game) {
         var self = this;
         self.game = game;
@@ -79,18 +83,31 @@ dojo.declare('iLGame', [ ], {
 
         uow.getAudio({ defaultCaching: true }).then(function(a) {
             self.audio = a;
-            // configure the preview channel
-            self.audio.setProperty({ channel: 'preview', name: 'volume', value: 0.4, immediate: true });
+			
+			dojo.subscribe('/org/hark/prefs/response', self, this.prefsCallback);
+            dojo.publish('/org/hark/prefs/request');
+			
+			// configure the preview channel
+            //self.audio.setProperty({ channel: 'preview', name: 'volume', value: 0.4, immediate: true });
             self.audio.setProperty({ channel: 'preview', name: 'pitch', value: 0.4, immediate: true });
             self.audio.setProperty({name : 'voice', value : 'default+f1', channel : 'preview'});
             
             dojo.subscribe('message', self, 'message');
             dojo.subscribe('dots', self, 'display');
             dojo.subscribe('letter', self, 'newLetter');
-            
+			
             self.newGame();
         });
     },
+	
+	prefsCallback: function(prefs, which)
+	{
+		var self = this;
+		
+		self.masterVolume=prefs.volume;
+		self.speechVolume=prefs.speechVolume;
+		self.soundVolume=prefs.soundVolume;
+	},
     
     newGame: function() {
         var self = this;
@@ -212,10 +229,12 @@ dojo.declare('iLGame', [ ], {
             channel = 'default';
         }
         console.log('say', txt);
+		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume});
         return this.audio.say({ text: txt, channel: channel });
     },
     
     play: function(snd) {
+		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume});
         return this.audio.play({ url: snd });
     }, 
     
