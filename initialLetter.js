@@ -109,7 +109,7 @@ dojo.declare('iLGame', [ ], {
 		self.soundVolume=prefs.soundVolume;
 		
 		self.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
-		self.audio.setProperty({name: 'rate', value: prefs.speechRate});
+		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
 	},
     
     newGame: function() {
@@ -232,12 +232,12 @@ dojo.declare('iLGame', [ ], {
             channel = 'default';
         }
         console.log('say', txt);
-		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume});
+		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
     
     play: function(snd) {
-		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume});
+		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
         return this.audio.play({ url: snd });
     }, 
     
