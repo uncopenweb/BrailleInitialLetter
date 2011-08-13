@@ -113,7 +113,7 @@ dojo.declare('iLGame', [ ], {
 		self.audio.setProperty({name: 'volume', channel: 'preview', value: this.masterVolume*this.speechVolume, immediate: true});
 		
 		//Set speech rate of channels
-		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true
+		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
 		self.audio.setProperty({name: 'rate', channel: 'preview', value: prefs.speechRate, immediate: true});
 	},
     
