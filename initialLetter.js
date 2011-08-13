@@ -61,6 +61,7 @@ dojo.declare('iLGame', [ ], {
 	masterVolume: 1.0,
 	speechVolume: 1.0,
 	soundVolume: 1.0,
+	playingSound: false,
 	
     constructor: function(game) {
         var self = this;
@@ -108,7 +109,7 @@ dojo.declare('iLGame', [ ], {
 		self.speechVolume=prefs.speechVolume;
 		self.soundVolume=prefs.soundVolume;
 		
-		self.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
+		self.audio.setProperty({name: 'volume', value: this.masterVolume*(this.playingSound ? this.soundVolume : this.speechVolume), immediate: true});
 		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
 	},
     
@@ -237,8 +238,9 @@ dojo.declare('iLGame', [ ], {
     },
     
     play: function(snd) {
+		this.playingSound=true;
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
-        return this.audio.play({ url: snd });
+        return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;}));
     }, 
     
     display: function(dots) {
