@@ -237,12 +237,13 @@ dojo.declare('iLGame', [ ], {
             channel = 'default';
         }
         //console.log('say:  channel: '+channel+', text: '+txt);
+		console.log("Say "+text+": "+this.audio);
 		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
     
     play: function(snd) {
-		this.playingSound=true;
+		this.playingSound=true;console.log("Play "+snd+": "+this.audio);
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
         return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;}));
     }, 
