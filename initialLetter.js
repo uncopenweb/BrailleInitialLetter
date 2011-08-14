@@ -145,9 +145,12 @@ dojo.declare('iLGame', [ ], {
 			}));
         }
 		
-		self.say(self.word.intro).callAfter(function() {
-			self.waitingForLetter = true;
-		});
+		else
+		{
+			self.say(self.word.intro).callAfter(function() {
+				self.waitingForLetter = true;
+			});
+		}
     },
     
     newLetter: function(l) {
