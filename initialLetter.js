@@ -61,6 +61,7 @@ dojo.declare('iLGame', [ ], {
 	masterVolume: 1.0,
 	speechVolume: 1.0,
 	soundVolume: 1.0,
+	playingSound: false,
 	
     constructor: function(game) {
         var self = this;
@@ -108,9 +109,8 @@ dojo.declare('iLGame', [ ], {
 		self.speechVolume=prefs.speechVolume;
 		self.soundVolume=prefs.soundVolume;
 		
-		self.audio.setProperty({name: 'volume', value: this.masterVolume*this.speechVolume, immediate: true});
+		self.audio.setProperty({name: 'volume', value: this.masterVolume*(this.playingSound ? this.soundVolume : this.speechVolume), immediate: true});
 		self.audio.setProperty({name: 'volume', channel: 'preview', value: this.masterVolume*this.speechVolume, immediate: true});
-		self.audio.setProperty({name: 'volume', channel: 'sounds', value: this.masterVolume*this.soundVolume, immediate: true});
 		
 		//Set speech rate of channels
 		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
@@ -137,15 +137,12 @@ dojo.declare('iLGame', [ ], {
         }
         self.letter = self.word[0];
         if (self.word.sound) {
-            self.play(self.word.sound).callAfter(self.say(self.word.intro).callAfter(function() {self.waitingForLetter = true;}));
+            self.play(self.word.sound).anyAfter(dojo.hitch(this, function(){this.playingSound=false;console.log(this.playingSound);}));
         }
 		
-		else
-		{
-			self.say(self.word.intro).callAfter(function() {
-				self.waitingForLetter = true;
-			});
-		}
+		self.say(self.word.intro).callAfter(function() {
+			self.waitingForLetter = true;
+		});
     },
     
     newLetter: function(l) {
@@ -246,8 +243,9 @@ dojo.declare('iLGame', [ ], {
     },
     
     play: function(snd) {
-		this.audio.setProperty({name: 'volume', channel: 'sounds', value: this.masterVolume*this.soundVolume});
-        return this.audio.play({ url: snd, channel: 'sounds' });
+		this.playingSound=true;console.log(this.playingSound);
+		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume});
+        return this.audio.play({ url: snd });
     }, 
     
     display: function(dots) {
