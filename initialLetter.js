@@ -137,9 +137,9 @@ dojo.declare('iLGame', [ ], {
         }
         self.letter = self.word[0];
         if (self.word.sound) {
-            self.play(self.word.sound).anyAfter(dojo.hitch(this, function(){
-				this.playingSound=false;
-				this.audio.setProperty({name: 'volume', value: this.masterVolume*this.speechVolume, immediate: true});
+            self.play(self.word.sound).anyAfter(dojo.hitch(self, function(){
+				self.playingSound=false;
+				self.audio.setProperty({name: 'volume', value: self.masterVolume*self.speechVolume, immediate: true});
 			}));
         }
 		
