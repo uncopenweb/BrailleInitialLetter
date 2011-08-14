@@ -139,9 +139,13 @@ dojo.declare('iLGame', [ ], {
         if (self.word.sound) {
             self.play(self.word.sound).callAfter(self.say(self.word.intro).callAfter(function() {self.waitingForLetter = true;}));
         }
-        self.say(self.word.intro).callAfter(function() {
-            self.waitingForLetter = true;
-        });
+		
+		else
+		{
+			self.say(self.word.intro).callAfter(function() {
+				self.waitingForLetter = true;
+			});
+		}
     },
     
     newLetter: function(l) {
