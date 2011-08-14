@@ -138,8 +138,10 @@ dojo.declare('iLGame', [ ], {
         self.letter = self.word[0];
         if (self.word.sound) {
             self.play(self.word.sound).anyAfter(dojo.hitch(self, function(){
-				self.playingSound=false;console.log(self.speechVolume);
-				self.audio.setProperty({name: 'volume', value: self.masterVolume*self.speechVolume, immediate: true});
+				self.playingSound=false;
+				self.say(self.word.intro).callAfter(function() {
+					self.waitingForLetter = true;
+				});
 			}));
         }
 		
