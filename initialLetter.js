@@ -109,8 +109,8 @@ dojo.declare('iLGame', [ ], {
 		self.speechVolume=prefs.speechVolume;
 		self.soundVolume=prefs.soundVolume;
 		
-		//self.audio.setProperty({name: 'volume', value: this.masterVolume*(this.playingSound ? this.soundVolume : this.speechVolume), immediate: true});
-		//self.audio.setProperty({name: 'volume', channel: 'preview', value: this.masterVolume*this.speechVolume, immediate: true});
+		self.audio.setProperty({name: 'volume', value: this.masterVolume*(this.playingSound ? this.soundVolume : this.speechVolume), immediate: true});
+		self.audio.setProperty({name: 'volume', channel: 'preview', value: this.masterVolume*this.speechVolume, immediate: true});
 		
 		//Set speech rate of channels
 		self.audio.setProperty({name: 'rate', value: prefs.speechRate, immediate: true});
@@ -237,13 +237,12 @@ dojo.declare('iLGame', [ ], {
             channel = 'default';
         }
         //console.log('say:  channel: '+channel+', text: '+txt);
-		console.log("Say "+txt+": "+this.audio);
 		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
     
     play: function(snd) {
-		this.playingSound=true;console.log("Play "+snd+": "+this.audio);
+		this.playingSound=true;
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume, immediate: true});
         return this.audio.play({ url: snd }).anyAfter(dojo.hitch(this, function(){this.playingSound=false;}));
     }, 
