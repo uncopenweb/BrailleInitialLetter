@@ -138,7 +138,7 @@ dojo.declare('iLGame', [ ], {
         self.letter = self.word[0];
         if (self.word.sound) {
             self.play(self.word.sound).anyAfter(dojo.hitch(self, function(){
-				self.playingSound=false;
+				self.playingSound=false;console.log(self.playingSound);
 				self.audio.setProperty({name: 'volume', value: self.masterVolume*self.speechVolume, immediate: true});
 			}));
         }
@@ -246,7 +246,7 @@ dojo.declare('iLGame', [ ], {
     },
     
     play: function(snd) {
-		this.playingSound=true;
+		this.playingSound=true;console.log(this.playingSound);
 		this.audio.setProperty({name: 'volume', value: this.masterVolume*this.soundVolume});
         return this.audio.play({ url: snd });
     }, 
