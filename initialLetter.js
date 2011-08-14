@@ -167,10 +167,10 @@ dojo.declare('iLGame', [ ], {
         txt += silence(1.0);
         txt += spell(self.word.word) + ' spells ' + self.word.word + '. ';
         txt += silence(1.0);
-        self.say(txt);
-        self.say(self.word.success + silence(2.0)).callAfter(function() {
-            self.newWord();
-        });
+        self.say(txt).callAfter(function(){
+			self.say(self.word.success + silence(2.0)).callAfter(function() {
+				self.newWord();
+		})});
     },
     
     instruct: function(l) {
