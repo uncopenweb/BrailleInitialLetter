@@ -237,7 +237,7 @@ dojo.declare('iLGame', [ ], {
             channel = 'default';
         }
         //console.log('say:  channel: '+channel+', text: '+txt);
-		console.log("Say "+text+": "+this.audio);
+		console.log("Say "+txt+": "+this.audio);
 		this.audio.setProperty({name: 'volume', channel: channel, value: this.masterVolume*this.speechVolume, immediate: true});
         return this.audio.say({ text: txt, channel: channel });
     },
